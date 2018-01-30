@@ -11,7 +11,9 @@ Lendr is a full stack  MERN react app that gives users the ability to keep track
 * Express
 * React
 * Node.js
-
+.
+.
+.
 # Backend Routes
 METHOD | URL | Purpose
 --- | --- | ---
@@ -20,6 +22,6 @@ POST | /auth/login | Authenticates login details
 POST | /auth/me/from/token | Checks if token is present on browser refresh
 
 # Demo
-* coming soon...
 [Demo deployed on Heroku]()
+* coming soon...
 
