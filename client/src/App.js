@@ -2,13 +2,23 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
+
+// import layout
 import Flash from './layout/Flash.js';
 import Footer from './layout/Footer.js';
-import Home from './Home.js';
 import Nav from './layout/Nav.js';
+
+// import auth
 import Login from './auth/Login.js';
-import Profile from './Profile.js';
 import Signup from './auth/Signup.js';
+
+import Dashboard from './Dashboard.js';
+// import dashboard
+import Borrowing from './dashboard/Borrowing.js';
+import Inventory from './dashboard/Inventory.js';
+import Lending from './dashboard/Lending.js';
+import Needed from './dashboard/Needed.js';
+
 
 class App extends Component {
   constructor(props){
@@ -75,13 +85,20 @@ class App extends Component {
             <Nav user={this.state.user} updateUser={this.getUser} />
             <div className="space">
               <Flash flashType={this.state.flashType} flash={this.state.flash} setFlash={this.setFlash} cancelFlash={this.cancelFlash} />
-              <Route exact path="/" component={Home} />
+              <Route path="/dashboard" component={
+                () => (<Dashboard user={this.state.user} setFlash={this.setFlash} />)} />
+              <Route path="/borrowing" component={
+                () => (<Borrowing user={this.state.user} setFlash={this.setFlash} />)} />
+              <Route path="/inventory" component={
+                () => (<Inventory user={this.state.user} setFlash={this.setFlash} />)} />
+              <Route path="/lending" component={
+                () => (<Lending user={this.state.user} setFlash={this.setFlash} />)} />
+              <Route path="/needed" component={
+                () => (<Needed user={this.state.user} setFlash={this.setFlash} />)} />
               <Route path="/login" component={
                 () => (<Login user={this.state.user} setFlash={this.setFlash} updateUser={this.getUser} />)} />
               <Route path="/signup" component={
                 () => (<Signup user={this.state.user} setFlash={this.setFlash} updateUser={this.getUser} />)} />
-              <Route path="/profile" component={
-                () => (<Profile user={this.state.user} setFlash={this.setFlash} />)} />
             </div>
           </div>
         </Router>
@@ -89,6 +106,6 @@ class App extends Component {
       </div>
     );
   }
-}
+};
 
 export default App;

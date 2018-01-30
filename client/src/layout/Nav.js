@@ -9,22 +9,23 @@ class Nav extends Component {
     if(this.props.user){
       links = (
         <span>
-          <Link to="/profile">Profile</Link>
+          <Link to="/dashboard">Dashboard</Link>
           <Logout updateUser={this.props.updateUser} />
-        </span>);
+        </span>
+      );
     }
     else {
       links = (
         <span>
           <Link to="/login">Login</Link>
           <Link to="/signup">Sign Up</Link>
-        </span>);
+        </span>
+      );
     }
 
     return(
         <div>
           <nav className="nav">
-            <a href="/">Home</a>
             {links}
           </nav>
           <header className="App-header">
