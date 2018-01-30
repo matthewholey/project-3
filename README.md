@@ -5,7 +5,7 @@ Lendr is a full stack  MERN react app that gives users the ability to keep track
 * I want to be able to see keep a personal tracking list of who has borrowed my property
 * I want an app that lets me borrow or lend out personal items to others.
 * I have old text books that others could use more than once. I need something to keep track of all of them.
-* 
+
 
 
 # Technologies Used
