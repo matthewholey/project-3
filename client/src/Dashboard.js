@@ -9,9 +9,11 @@ class Dashboard extends Component {
     if (this.props.user && this.props.user.name) {
       return (
         <div>
-          <Link to="/lending">Lending</Link>
-          <Link to="/inventory">Inventory</Link>
-          <Link to="/borrowing">Borrowing</Link>
+          <header className="App-header">
+            <Link to="/lending">Lending</Link>
+            <Link to="/inventory">Inventory</Link>
+            <Link to="/borrowing">Borrowing</Link>
+          </header>
 
           <Inventory />
           <Needed />

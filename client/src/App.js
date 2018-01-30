@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
 
+// import welcome page, root, renders if not logged in, redirects to Dashboard if logged in
+import Welcome from './Welcome.js';
+
 // import layout
 import Flash from './layout/Flash.js';
 import Footer from './layout/Footer.js';
@@ -85,6 +88,8 @@ class App extends Component {
             <Nav user={this.state.user} updateUser={this.getUser} />
             <div className="space">
               <Flash flashType={this.state.flashType} flash={this.state.flash} setFlash={this.setFlash} cancelFlash={this.cancelFlash} />
+              <Route path="/" component={
+                () => (<Welcome user={this.state.user} setFlash={this.setFlash} />)} />
               <Route path="/dashboard" component={
                 () => (<Dashboard user={this.state.user} setFlash={this.setFlash} />)} />
               <Route path="/borrowing" component={

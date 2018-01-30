@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
 import Logout from '../auth/Logout.js';
 import { Link } from 'react-router-dom';
+import Hamburger from './Hamburger.js';
 
 class Nav extends Component {
-  render(){
+  render() {
     let links = <span />;
-    if(this.props.user){
+    if (this.props.user) {
       links = (
         <span>
           <Link to="/dashboard">Dashboard</Link>
@@ -23,17 +23,14 @@ class Nav extends Component {
       );
     }
 
-    return(
+    return (
         <div>
           <nav className="nav">
+            <h1 className="App-title">Trendy App Name</h1>
             {links}
           </nav>
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to MERN Stack Boilerplate!</h1>
-          </header>
         </div>
-      );
+    );
   }
 }
 
