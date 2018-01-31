@@ -37,9 +37,9 @@ a:hover {
   font-size: 10px;
 }
 
-.space {
+/*.space {
   margin: 15px 0;
-}
+}*/
 
 .btn-primary {
   color: #fff;
@@ -75,9 +75,11 @@ a:hover {
 
 .no-flash {
   visibility: hidden;
-  padding: 10px 30px;
+  border: 0;
+  padding: 0;
+  height: 0;
   width: 75%;
-  margin: 10px auto;
+  margin: 0 auto;
 }
 
 .x-button {
@@ -99,8 +101,8 @@ a:hover {
 
 .App-header {
   background-color: #222;
-  height: 150px;
-  padding: 20px;
+  height: 21px;
+  padding: 10px;
   text-decoration: none;
   color: white;
 }

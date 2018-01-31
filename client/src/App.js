@@ -92,11 +92,11 @@ class App extends Component {
                 () => (<Welcome user={this.state.user} setFlash={this.setFlash} />)} />
               <Route path="/dashboard" component={
                 () => (<Dashboard user={this.state.user} setFlash={this.setFlash} />)} />
-              <Route path="/borrowing" component={
+              <Route path="/dashboard/borrowing" component={
                 () => (<Borrowing user={this.state.user} setFlash={this.setFlash} />)} />
-              <Route path="/inventory" component={
+              <Route path="/dashboard/inventory" component={
                 () => (<Inventory user={this.state.user} setFlash={this.setFlash} />)} />
-              <Route path="/lending" component={
+              <Route path="/dashboard/lending" component={
                 () => (<Lending user={this.state.user} setFlash={this.setFlash} />)} />
               <Route path="/needed" component={
                 () => (<Needed user={this.state.user} setFlash={this.setFlash} />)} />
