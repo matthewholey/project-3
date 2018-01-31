@@ -26,7 +26,7 @@ class Nav extends Component {
     return (
         <div>
           <nav className="nav">
-            <h1 className="App-title">Trendy App Name</h1>
+            <h2 className="App-title">TrendyApp</h2>
             {links}
           </nav>
         </div>

@@ -37,9 +37,9 @@ a:hover {
   font-size: 10px;
 }
 
-.space {
+/*.space {
   margin: 15px 0;
-}
+}*/
 
 .btn-primary {
   color: #fff;
@@ -75,9 +75,11 @@ a:hover {
 
 .no-flash {
   visibility: hidden;
-  padding: 10px 30px;
+  border: 0;
+  padding: 0;
+  height: 0;
   width: 75%;
-  margin: 10px auto;
+  margin: 0 auto;
 }
 
 .x-button {
@@ -86,3 +88,28 @@ a:hover {
   border-radius: 2px;
   float: right;
 }
+<<<<<<< HEAD
+=======
+
+/* DEFAULT STYLES FROM CREATE REACT APP MODULE */
+.App {
+  text-align: center;
+}
+
+.App-title {
+  text-align: left;
+  font-size: 1.5em;
+}
+
+.App-header {
+  background-color: #222;
+  height: 21px;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+>>>>>>> 357e8ce203006ecfd045a8399e3da8fc9b326c91
