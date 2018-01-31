@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
 import Inventory from './dashboard/Inventory.js';
 import Needed from './dashboard/Needed.js';
 
@@ -10,11 +9,10 @@ class Dashboard extends Component {
       return (
         <div>
           <header className="App-header">
-            <Link to="/lending">Lending</Link>
-            <Link to="/inventory">Inventory</Link>
-            <Link to="/borrowing">Borrowing</Link>
+            <Link to="/lending"> Lending </Link>
+            <Link to="/inventory"> Inventory </Link>
+            <Link to="/borrowing"> Borrowing </Link>
           </header>
-
           <Inventory />
           <Needed />
         </div>
