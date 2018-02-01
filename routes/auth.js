@@ -2,7 +2,7 @@ require('dotenv').config();
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var db = require('../models');
+var User = require('../models/user');
 var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 
@@ -12,7 +12,7 @@ router.post('/login', function(req, res, next) {
   var hashedPass = '';
   var passwordMatch = false;
   // look up user
-  db.user.findOne({email: req.body.email}, function(err, user) {
+  User.findOne({email: req.body.email}, function(err, user) {
     if(!user || !user.password){
       return res.status(403).send({
         error: true,
@@ -45,13 +45,13 @@ router.post('/login', function(req, res, next) {
 router.post('/signup', function(req, res, next) {
   console.log('/auth/signup post route', req.body);
   // Find by email
-  db.user.findOne({ email: req.body.email }, function(err, user) {
+  User.findOne({ email: req.body.email }, function(err, user) {
     if (user) {
       return res.status(400).send({error: true, message: 'Bad Request - User already exists' });
     }
     else {
       // create and save a user
-      db.user.create({
+      User.create({
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
@@ -87,7 +87,7 @@ router.post('/me/from/token', function(req, res, next) {
       return res.status(500).send({ error: true, message: 'JWT Verification Error - ' + err});
     }
     //return user using the id from w/in JWT
-    db.user.findById({
+    User.findById({
       '_id': user._id
     }, function(err, user) {
       if (err){

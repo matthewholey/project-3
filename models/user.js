@@ -1,10 +1,11 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt');
 
 var Item = require('./item.js');
-var ItemSchema = mongoose.model('Item').Schema;
+var itemSchema = mongoose.model('Item').Schema;
 
-var userSchema = new mongoose.Schema({
+var userSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -24,10 +25,12 @@ var userSchema = new mongoose.Schema({
     minlength: 6,
     maxlength: 99
   },
-  items: {
-    type: Array
-    item: ItemSchema
-  }
+  items: [{
+    itemId: {
+      type: Schema.Types.ObjectId,
+      ref: 'Item'
+    }
+  }]
 });
 
 // Override 'toJSON' to prevent the password from being returned with the user
