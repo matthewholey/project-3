@@ -1,6 +1,9 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 
+var Item = require('./item.js');
+var ItemSchema = mongoose.model('Item').Schema;
+
 var userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -20,6 +23,10 @@ var userSchema = new mongoose.Schema({
     required: true,
     minlength: 6,
     maxlength: 99
+  },
+  items: {
+    type: Array
+    item: ItemSchema
   }
 });
 
