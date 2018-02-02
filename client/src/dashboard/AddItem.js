@@ -1,34 +1,37 @@
 import React, { Component } from 'react';
-import ReactDom from 'react-dom';
-
+import axios from 'axios';
 
 class AddItem extends Component {
   constructor(props) {
       super(props);
-      this.state = {value: ''};
-
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
+      this.state = {
+        itemName: ''
+      }
     }
 
-    handleChange(event) {
-      this.setState({value: event.target.value});
+    handleItemNameChange = (e) => {
+      this.setState({itemName: e.target.value})
     }
 
-    handleSubmit(event) {
-      alert('An item was submitted: ' + this.state.value);
-      event.preventDefault();
+    handleSubmit = (e) => {
+      e.preventDefault();
+      console.log(this.state.itemName + " submitted from form.");
+      axios.post('/items/dashboard/inventory', {
+        itemName: this.state.itemName
+      });
     }
 
     render() {
       return (
         <form onSubmit={this.handleSubmit}>
-          <label>
-            Item:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
-          </label>
-          <input type="submit" value="Add to Inventory" />
+            <input name="itemName"
+                  placeholder="Add an item..."
+                  value={this.state.itemName}
+                  onChange={this.handleItemNameChange} />
+          <input type="submit" value="Add to Inventory" className="btn-primary" />
         </form>
       );
     }
-  }
+  };
+
+  export default AddItem;

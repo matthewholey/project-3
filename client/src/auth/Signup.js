@@ -48,8 +48,7 @@ class Signup extends Component {
                   <input name="Name"
                        placeholder="What is your first name?"
                        value={this.state.name}
-                       onChange={this.handleNameChange}
-                  />
+                       onChange={this.handleNameChange} />
                 </div>
                 <div>
                   <input name="Email"
@@ -70,7 +69,7 @@ class Signup extends Component {
     return (
       <div>
         {form}
-        {this.props.user ? <Redirect to="/profile" /> : ''}
+        {this.props.user ? <Redirect to="/dashboard" /> : ''}
       </div>
     );
   }
