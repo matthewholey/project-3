@@ -19,7 +19,7 @@ class Dashboard extends Component {
           <div>
             <Link to="/needed">Needed</Link>
             <div>
-              <Inventory />
+              <Inventory user={this.props.user} />
               <div>
                 <Lending />
                 <Borrowing />

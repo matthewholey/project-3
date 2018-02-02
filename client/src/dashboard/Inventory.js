@@ -6,7 +6,7 @@ class Inventory extends Component {
 	render() {
 		return (
 			<div>
-				<AddItem />
+				<AddItem user={this.props.user} />
 				<div>
 					<h1>Inventory</h1>
 					<div>

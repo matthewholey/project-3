@@ -6,15 +6,11 @@ var Item = require('../models/item');
 var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 
-var User = require('../models/user');
-var user = mongoose.model('User').Schema;
-var userId = User.findOne({"_id": user._id}, {"_id": 1});
-
 //POST - create item/add item to inventory
 router.post("/dashboard/inventory", function(req, res, next) {
 	var data = {
 		itemName: req.body.itemName,
-		ownerId: req.userId,
+		ownerId: req.body.id,
 		isBorrowed: []
 	};
 	console.log("data = " + JSON.stringify(data));
