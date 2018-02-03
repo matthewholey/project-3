@@ -7,7 +7,7 @@ class Welcome extends Component {
     	let page = <div></div>;
     	if (this.props.user) {
     		page = (
-        		<Dashboard user={this.state.user} setFlash={this.setFlash} />
+        		<Dashboard />
     		);
     	}
     	else {
