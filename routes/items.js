@@ -10,7 +10,7 @@ var jwt = require('jsonwebtoken');
 router.post("/dashboard/inventory", function(req, res, next) {
 	var data = {
 		itemName: req.body.itemName,
-		ownerId: req.body.id,
+		ownerId: req.body.userId,
 		isBorrowed: []
 	};
 	console.log("data = " + JSON.stringify(data));
@@ -24,8 +24,8 @@ router.post("/dashboard/inventory", function(req, res, next) {
         }
     }).then(function() {
     	res.redirect("/dashboard/inventory");
-    }).catch(function(err){
-		res.status(status).send("uh oh!", err);
+    }).catch(function(status, body){
+		res.status(500).send(body);
 	});
 });
 
