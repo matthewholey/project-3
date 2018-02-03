@@ -30,7 +30,7 @@ class Dashboard extends Component {
       );
     }
     else {
-      <Welcome />
+      page = <Welcome user={this.state.user} setFlash={this.setFlash} />
     }
     return (
       <div>

@@ -22,7 +22,23 @@ router.post("/dashboard/inventory", function(req, res, next) {
         else {
           res.send({item: item});
         }
-    });
+    }).then(function() {
+    	res.redirect("/dashboard/inventory");
+    }).catch(function(err){
+		res.status(status).send("uh oh!", err);
+	});
+});
+
+//GET - get item from db and render in inventory
+router.get("/dashboard/inventory", function(req, res, next) {
+	Item.findAll({
+		where: {
+			ownerId: req.body.id
+		}
+	}).then(function(items) {
+		console.log(items);
+		res.render("/dashboard/inventory", {items: items});
+	});
 });
 
 module.exports = router;

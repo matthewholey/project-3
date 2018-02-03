@@ -3,6 +3,10 @@ import AddItem from './AddItem';
 
 
 class Inventory extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {}
+	}
 	render() {
 		return (
 			<div>
@@ -12,13 +16,6 @@ class Inventory extends Component {
 					<div>
 						<h2>Items you have to lend out.</h2>
 						<div className="items">
-							<h3>Item</h3>
-							<h3>Item</h3>
-							<h3>Item</h3>
-							<h3>Item</h3>
-							<h3>Item</h3>
-							<h3>Item</h3>
-							<h3>Item</h3>
 							<h3>Item</h3>
 						</div>
 					</div>
