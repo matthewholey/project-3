@@ -6,7 +6,7 @@ var Item = require('../models/item');
 var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 
-//POST - create item/add item to inventory
+// POST - create item - take user input for itemName and add current user's id to establish ownership
 router.post("/dashboard/inventory", function(req, res, next) {
 	var data = {
 		itemName: req.body.itemName,
@@ -29,7 +29,7 @@ router.post("/dashboard/inventory", function(req, res, next) {
 	});
 });
 
-//GET - get item from db and render in inventory
+// GET - get item from items collection in db and render in inventory component
 router.get("/dashboard/inventory", function(req, res, next) {
 	Item.findAll({
 		where: {
@@ -40,5 +40,23 @@ router.get("/dashboard/inventory", function(req, res, next) {
 		res.render("/dashboard/inventory", {items: items});
 	});
 });
+
+// POST - add other user object/document to requests array in corresponding item object/document
+
+/* Owner (current user) confirms one request */
+// POST - add selected user id as value to reqConfirmed key in item object/document
+// DELETE - upon selected user confirmation all requests in the requests array are cleared
+
+/* Prospecive borrower can then confirm upon recieving item, becomes borrower */
+// POST - add selected user id to borrowerId
+
+/* Borrower ready to return item to owner */
+// PUT - change borrowerDone status from false to true
+
+/* Owner confirms possession/return of item, item returns to default state */
+// DELETE - delete selected user id from borrowerId
+
+/* Owner decides to take item off of app if in inventory and not borrowed */
+// DELETE - delete item
 
 module.exports = router;
