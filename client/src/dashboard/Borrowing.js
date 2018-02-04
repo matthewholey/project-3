@@ -20,9 +20,10 @@ class Borrowing extends Component {
         <div className="body">
           <form onSubmit={this.addItem}>
             <div className="form-group">
-              <label="addNameInput">Name</label>
+              <label="Name">Name</label>
               <input type="text" className="form-control" name="name" placeholder="Enter name" onChange={this.onFieldChanged} />
             </div>
+		  //add description?
             <div className="form-group">
               <label htmlFor="addDescriptionInput">Description</label>
               <input type="text" className="form-control" name="description" placeholder="Enter description" onChange={this.onFieldChanged} />
@@ -32,7 +33,7 @@ class Borrowing extends Component {
             <span> { error } </span>
           </form>
         </div>
-      </Modal>
+      
     );
   }
 }
