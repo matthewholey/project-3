@@ -7,8 +7,8 @@ class Borrowing extends Component {
     this.state = {
       item: {
         name: '',
-        description: '',
-        images: [],
+        description: ''
+       
       },
 	    //layout
 	render() {
