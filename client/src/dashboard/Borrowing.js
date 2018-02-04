@@ -1,26 +1,40 @@
 import React, { Component } from 'react';
 
 class Borrowing extends Component {
+	class BorrowItem extends Component {
+  constructor() {
+    super();
+    this.state = {
+      item: {
+        name: '',
+        description: '',
+        images: [],
+      },
+	    //layout
 	render() {
-		return (
-			<div>
-				<h1>Borrowing</h1>
-				<div>
-					<h2>Items that you are currently borrowing.</h2>
-					<div className="items">
-						<h3>Item</h3>
-						<h3>Item</h3>
-						<h3>Item</h3>
-						<h3>Item</h3>
-						<h3>Item</h3>
-						<h3>Item</h3>
-						<h3>Item</h3>
-						<h3>Item</h3>
-					</div>
-				</div>
-			</div>
-		);
-	}
-};
+	  return (
+        <div className="header">
+          <button type="button" className="close" name="Borrowing" onClick={onHide}>×</button>
+          <h3 id="AddItem">Add Item</h3>
+        </div>
+        <div className="body">
+          <form onSubmit={this.addItem}>
+            <div className="form-group">
+              <label="addNameInput">Name</label>
+              <input type="text" className="form-control" name="name" placeholder="Enter name" onChange={this.onFieldChanged} />
+            </div>
+            <div className="form-group">
+              <label htmlFor="addDescriptionInput">Description</label>
+              <input type="text" className="form-control" name="description" placeholder="Enter description" onChange={this.onFieldChanged} />
+            </div>          
+            </ul>
+            <button type="submit" className="btn btn-default" onChange={this.addItem}>Add</button>
+            <span> { error } </span>
+          </form>
+        </div>
+      </Modal>
+    );
+  }
+}
 
 export default Borrowing;
