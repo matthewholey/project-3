@@ -6,6 +6,8 @@ var Item = require('../models/item');
 var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 
+var User = require('../models/user');
+
 // POST - create item - take user input for itemName and add current user's id to establish ownership
 router.post("/dashboard/inventory", function(req, res, next) {
 	var data = {
@@ -41,7 +43,25 @@ router.get("/dashboard/inventory", function(req, res, next) {
 	});
 });
 
+// GET - render all items besides current user's items on available page
+router.get("dashboard/all", function(req, res, next) {
+	Item.findAll({})
+})
+
 // POST - add other user object/document to requests array in corresponding item object/document
+router.post("/dashboard/all", function(req, res, next) {
+	User.findOne({
+		where: {
+			_id: req.body.id
+		}
+	}).then(function(user) {
+		Item.findOne({
+			where: {
+				_id: 
+			}
+		})
+	})
+})
 
 /* Owner (current user) confirms one request */
 // POST - add selected user id as value to reqConfirmed key in item object/document

@@ -14,6 +14,11 @@ var itemSchema = new Schema({
 		ref: 'User',
 		required: true
 	},
+	requests: [{
+		userId: Schema.Types.ObjectId,
+		name: String,
+		ref: 'User'
+	}],
 	isBorrowed: [{
 		borrowerId: {
 			type: String
