@@ -5,27 +5,50 @@ import AddItem from './AddItem';
 class Inventory extends Component {
 	render() {
 		return (
-			<div>
-				<AddItem user={this.props.user} />
-				<div>
-					<h1>Inventory</h1>
-					<div>
-						<h2>Items you have to lend out.</h2>
-						<div className="items">
-							<h3>Item</h3>
-							<h3>Item</h3>
-							<h3>Item</h3>
-							<h3>Item</h3>
-							<h3>Item</h3>
-							<h3>Item</h3>
-							<h3>Item</h3>
-							<h3>Item</h3>
-						</div>
-					</div>
-				</div>
-			</div>
-		);
-	}
-};
+		var NewComponent = React.createClass({
+  displayName: "NewComponent",
+
+  render: function () {
+    return React.createElement(
+      "div",
+      null,
+      React.createElement(
+        "h2",
+        { className: "text-center" },
+        "Items"
+      ),
+      React.createElement(
+        "form",
+        { method: "POST", action: "/items" },
+        React.createElement(
+          "span",
+          null,
+          React.createElement("input", { name: "title", type: "text", className: "form-control", required: true }),
+          React.createElement("input", { className: "btn btn-primary", type: "submit", defaultValue: "Add Item" })
+        )
+      ),
+    	React.item.forEach(this.props.item, (item, i) => {
+  		console.log(items + ' at index: ' + i);
+})
+      
+      
+      	React.createElement("div", null),
+      	React.createElement(
+        "h5",
+        null,
+        React.createElement(
+          "a",
+          { href: "/item/'(item.id)},
+          (item.title)
+        )
+      ),
+      React.createElement(
+        "a",
+        { href: "/boards/<%= item.id %>", className: "btn btn-danger delete-link" },
+        "Delete Item"
+      )
+    );
+  }
+});
 
 export default Inventory;
