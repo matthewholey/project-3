@@ -22,27 +22,22 @@ class Inventory extends Component {
 		function InventoryViewModel() {
 		    var self = this;
 
-    		// Non-editable catalog data - would come from the server
-	    self.availableMeals = [{ itemName: "" }];
+    			// Non-editable catalog data - would come from the server
+	    		self.availableMeals = [{ itemName: "" }];
 
-	   	// Editable data
-		    self.seats = ko.observableArray([new Inventory("", self.availableItems[0])]);
+	   			// Editable data
+		    		self.users = ko.observableArray([new Inventory("", self.availableItems[0])]);
 
-		    // Computed data
-		    self.totalSurcharge = ko.computed(function () {
-			var total = 0;
-			for (var i = 0; i < self.items().length; i++) total += self.items()[i].item().price;
-			return total;
-	    });
+		
 
-    			// Operations
-		    self.addSeat = function () {
-			self.item.push(new Inventory("", self.availableItems[0]));
-		    };
-		    self.removeSeat = function (item) {
-			self.items.remove(item);
-		    };
-		}
+					// Operations
+				    self.addUser = function () {
+					self.user.push(new Inventory("", self.availableUsers[0]));
+				    };
+			    self.removeUser = function (user) {
+				self.users.remove(user);
+			    };
+			}
 
 ko.applyBindings(new InventoryViewModel());
 
