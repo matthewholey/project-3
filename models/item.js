@@ -22,8 +22,7 @@ var itemSchema = new Schema({
 		ref: 'User'
 	},
 	requests: [{
-		username: String,
-		ref: 'User'
+		username: String
 	}],
 	isBorrowed: {
 		type: Boolean,

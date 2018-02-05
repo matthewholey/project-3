@@ -15,7 +15,7 @@ router.post("/dashboard/inventory", function(req, res, next) {
 		ownerId: req.body.userId,
 		ownerUsername: req.body.username,
 		requests: [],
-		isBorrowed: default
+		isBorrowed: false
 	};
 	console.log("data = " + JSON.stringify(data));
 	Item.create(data, function(err, item) {
