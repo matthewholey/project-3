@@ -53,6 +53,7 @@ router.post('/signup', function(req, res, next) {
       // create and save a user
       User.create({
         name: req.body.name,
+        username: req.body.username,
         email: req.body.email,
         password: req.body.password
       }, function(err, user) {

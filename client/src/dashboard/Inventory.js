@@ -59,4 +59,4 @@ import AddItem from './AddItem';
 
 export default Inventory;
 
-
+	

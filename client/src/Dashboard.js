@@ -42,7 +42,7 @@ class Dashboard extends Component {
       );
     }
     else {
-      <Welcome />
+      page = <Welcome />
     }
     return (
       <div>
