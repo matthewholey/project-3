@@ -2,36 +2,33 @@ import React, { Component } from 'react';
 import AddItem from './AddItem';
 
 
-		class Inventory extends Component {
-			constructor(props) {
-			super(props);
-			this.state = {
-				item: ''
-				      }
-				    }
-				// Class to represent a row in the grid
+class Inventory extends Component {
+	constructor(props) {
+      super(props);
+      this.state = {
+        item: ''
+      }
+    }
+			// Class to represent a row in the grid
 		function Inventory(name, initialItem) {
-		    var self = this;
-		    self.itemName = name;
-		    self.items = ko.observable(initialItem);
+		    const row = this;
+		    row.itemName = name;
+		    row.items = ko.observable(initialItem);
 
 		// Overall viewmodel for this screen, along with initial state
 		function InventoryViewModel() {
-		    var self = this;
+		    const self = this;
 
 		    // Non-editable catalog data - would come from the server
-		    self.availableItems = [{ itemName: "" }];
-
-		    // Editable data
-		    self.user = ko.observableArray([new Inventory("", self.availableItems[0])]);
+		    row.availableItems = [{ itemName: "" }];
 
 
 		    // Operations
-		    self.addAdd = function () {
-		        self.item.push(new Inventory("", self.availableItems[0]));
+		    row.addItem = function () {
+		        row.item.push(new Inventory("", self.availableItems[0]));
 		    };
-		    self.removeItem = function (item) {
-		        self.items.remove(item);
+		    row.removeItem = function (item) {
+		        row.items.remove(item);
 		    };
 		}
 
