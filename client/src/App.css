@@ -9,7 +9,7 @@
 /* CUSTOM STYLES */
 nav {
   width: 100%;
-  background-color: #555;
+  background-color: white;
   padding: 10px 0;
 }
 
@@ -88,6 +88,8 @@ a:hover {
   border-radius: 2px;
   float: right;
 }
+<<<<<<< HEAD
+=======
 
 /* DEFAULT STYLES FROM CREATE REACT APP MODULE */
 .App {
@@ -110,3 +112,4 @@ a:hover {
 .App-intro {
   font-size: large;
 }
+>>>>>>> 357e8ce203006ecfd045a8399e3da8fc9b326c91
