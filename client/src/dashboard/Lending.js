@@ -1,32 +1,20 @@
 import React, { Component } from 'react';
 
 
+
 class Lending extends Component {
   constructor() {
     super();
     this.state = {
       item: {
         name: '',
-        description: ''
-        
+        description: '',
+
       },
-     
+
     };
     this.onFieldChanged = this.onFieldChanged.bind(this);
     this.addItem = this.addItem.bind(this);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.showModal !== this.props.showModal && nextProps.showModal) {
-      this.setState({
-        item: {
-          name: '',
-          description: '',
-          images: [],
-        },
-        imagesInfo: [],
-      });
-    }
   }
 
   onFieldChanged(event) {
@@ -38,20 +26,21 @@ class Lending extends Component {
   addItem(event) {
     event.preventDefault();
     const { item } = this.state;
-    this.props.AddItem(item);
+    this.props.isLending(item);
   }
 
-  
-  	render() 
-        	<div className="header">
-          <button type="button" className="close" name="ItemName" onClick={onHide}>X</button>
-          <h3 id="AddItem">Add Item</h3>
+
+  render() {
+    const isLending = this.props;
+    return (
+        <div className="header">
+          <button type="button" className="close" name="Lending" onClick={onHide}>×</button>
+          <h3 id="AddItem">Submit</h3>
         </div>
         <div className="body">
-          <form
-            onSubmit={this.addItem}>
+          <form onSubmit={this.isLending}>
             <div className="form-group">
-              <label htmlFor="addNameInput">Name</label>
+              <label="addNameInput">Name</label>
               <input type="text" className="form-control" name="name" placeholder="Enter name" onChange={this.onFieldChanged} />
             </div>
             <div className="form-group">
@@ -59,14 +48,14 @@ class Lending extends Component {
               <input type="text" className="form-control" name="description" placeholder="Enter description" onChange={this.onFieldChanged} />
             </div>
             </ul>
-            <button type="submit" className="btn btn-default" onChange={this.addItem}>Add</button>
+            <button type="submit" className="btn btn-default" onChange={this.isLending}>Add</button>
             <span> { error } </span>
           </form>
         </div>
-      </Modal>
     );
   }
 }
 
 
 export default Lending;
+
