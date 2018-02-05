@@ -5,9 +5,15 @@ import AddItem from './AddItem';
 class Inventory extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {}
+		this.state = {
+			itemName: this.state.itemName
+		}
 	}
+	
 	render() {
+		var itemList = items.forEach(function(item) {
+			<li>item.itemName</li>
+		});
 		return (
 			<div>
 				<AddItem user={this.props.user} />
@@ -16,7 +22,9 @@ class Inventory extends Component {
 					<div>
 						<h2>Items you have to lend out.</h2>
 						<div className="items">
-							<h3>Item</h3>
+							<ul>
+								{itemList}
+							</ul>
 						</div>
 					</div>
 				</div>

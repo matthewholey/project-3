@@ -30,6 +30,7 @@ class App extends Component {
       user: {}
     }
   }
+  
   componentDidMount = () => {
     this.getUser();
   }
@@ -91,15 +92,15 @@ class App extends Component {
               <Route path="/" component={
                 () => (<Welcome user={this.state.user} setFlash={this.setFlash} />)} />
               <Route path="/dashboard" component={
-                () => (<Dashboard user={this.state.user} setFlash={this.setFlash} />)} />
+                () => (<Dashboard user={this.state.user} item={this.state.item} setFlash={this.setFlash} />)} />
               <Route path="/dashboard/borrowing" component={
-                () => (<Borrowing user={this.state.user} setFlash={this.setFlash} />)} />
+                () => (<Borrowing user={this.state.user} item={this.state.item} setFlash={this.setFlash} />)} />
               <Route path="/dashboard/inventory" component={
-                () => (<Inventory user={this.state.user} setFlash={this.setFlash} />)} />
+                () => (<Inventory user={this.state.user} item={this.state.item} setFlash={this.setFlash} />)} />
               <Route path="/dashboard/lending" component={
-                () => (<Lending user={this.state.user} setFlash={this.setFlash} />)} />
+                () => (<Lending user={this.state.user} item={this.state.item} setFlash={this.setFlash} />)} />
               <Route path="/needed" component={
-                () => (<Needed user={this.state.user} setFlash={this.setFlash} />)} />
+                () => (<Needed user={this.state.user} item={this.state.item} setFlash={this.setFlash} />)} />
               <Route path="/login" component={
                 () => (<Login user={this.state.user} setFlash={this.setFlash} updateUser={this.getUser} />)} />
               <Route path="/signup" component={

@@ -9,7 +9,7 @@ var jwt = require('jsonwebtoken');
 var User = require('../models/user');
 
 // POST - create item - take user input for itemName and add current user's id + username to establish ownership
-router.post("/dashboard/inventory", function(req, res, next) {
+router.post("/inventory", function(req, res, next) {
 	var data = {
 		itemName: req.body.itemName,
 		ownerId: req.body.userId,
@@ -34,17 +34,17 @@ router.post("/dashboard/inventory", function(req, res, next) {
 });
 
 // GET - get all items from items collection where the ownerId matches the current user's _id, render item data for inventory
-router.get("/dashboard/inventory", function(req, res, next) {
+router.get("/inventory", function(req, res, next) {
 	Item.find({
 		ownerId: req.body.user.id
 	}).then(function(items) {
 		console.log(items);
-		res.render("/dashboard/inventory", {items: items});
+		res.send("dashboard/inventory", {items: items});
 	});
 });
 
 // GET - render all items besides current user's items on available page
-router.get("dashboard/all", function(req, res, next) {
+router.get("/all", function(req, res, next) {
 	Item.find({
 		ownerId: {$not: req.body.user.id}
 	}).then(function(items) {
@@ -71,10 +71,12 @@ router.post("/dashboard/all", function(req, res, next) {
 // router.post("dashboard/inventory or requests", function(req, res, next) {
 // 	Item.findOne({})
 // })
-// // DELETE - all requests in the requests array are cleared
-// router.delete("dashboard/inventory or requests", function(req, res, next) {
-// 	Item.findOneAndRemove({})
-// })
+// // POST - all requests in the requests array are cleared
+router.post("dashboard/inventory or requests", function(req, res, next) {
+	Item.update({
+		$set: {requests: []}
+	});
+});
 
 // /* Borrower ready to return item to owner */
 // // POST - change borrower.isFinished status from false to true
