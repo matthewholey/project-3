@@ -53,16 +53,18 @@ router.get("dashboard/all", function(req, res, next) {
 	});
 });
 
-// // POST - add other user object/document to requests array in corresponding item object/document
-// router.post("/dashboard/all", function(req, res, next) {
-// 	User.findOne({
-// 		_id: req.body.id
-// 	}).then(function(user) {
-// 		Item.findOne({
-// 			_id: 
-// 		})
-// 	})
-// })
+// POST - add username to requests array in corresponding item object/document
+router.post("/dashboard/all", function(req, res, next) {
+	var requests = Item.requests;
+	var request = new mongoose.Schema({username: String});
+	request.update({
+		$set: {username: req.body.user.username}
+	}).then(function() {
+		requests.update({
+			$push: {request}
+		});
+	});
+});
 
 // /* Owner (current user) confirms one request, item is borrowed */
 // // POST - add selected user's username from the requests array to borrower.username in item object/document, change isBorrowed boolean value to true
