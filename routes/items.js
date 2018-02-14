@@ -34,22 +34,23 @@ router.post("/inventory", function(req, res, next) {
 });
 
 // GET - get all items from items collection where the ownerId matches the current user's _id, render item data for inventory
-router.get("/inventory", function(req, res, next) {
+router.get("/", function(req, res, next) {
+	console.log("USER DATA: " + req.query.id);
 	Item.find({
-		ownerId: req.body.user.id
-	}).then(function(items) {
-		console.log(items);
-		res.send("dashboard/inventory", {items: items});
+		ownerId: req.params.user.id
+	}).then(function(myItems) {
+		console.log("2nd USER DATA: " + req.user);
+		res.send({myItems: myItems});
 	});
 });
 
 // GET - render all items besides current user's items on available page
 router.get("/all", function(req, res, next) {
 	Item.find({
-		ownerId: {$not: req.body.user.id}
-	}).then(function(items) {
-		console.log(items);
-		res.render("dashboard/all", {items: items});
+		ownerId: {$not: req.body.ownerId}
+	}).then(function(otherItems) {
+		console.log(otherItems);
+		res.render("dashboard", {otherItems: otherItems});
 	});
 });
 

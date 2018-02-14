@@ -20,7 +20,6 @@ import Dashboard from './Dashboard.js';
 import Borrowing from './dashboard/Borrowing.js';
 import Inventory from './dashboard/Inventory.js';
 import Lending from './dashboard/Lending.js';
-import Needed from './dashboard/Needed.js';
 
 
 class App extends Component {
@@ -92,15 +91,13 @@ class App extends Component {
               <Route path="/" component={
                 () => (<Welcome user={this.state.user} setFlash={this.setFlash} />)} />
               <Route path="/dashboard" component={
-                () => (<Dashboard user={this.state.user} items={this.state.items} setFlash={this.setFlash} />)} />
+                () => (<Dashboard user={this.state.user} setFlash={this.setFlash} />)} />
               <Route path="/dashboard/borrowing" component={
-                () => (<Borrowing user={this.state.user} items={this.state.items} setFlash={this.setFlash} />)} />
+                () => (<Borrowing user={this.state.user} setFlash={this.setFlash} />)} />
               <Route path="/dashboard/inventory" component={
-                () => (<Inventory user={this.state.user} items={this.state.items} setFlash={this.setFlash} />)} />
+                () => (<Inventory user={this.state.user} setFlash={this.setFlash} />)} />
               <Route path="/dashboard/lending" component={
-                () => (<Lending user={this.state.user} items={this.state.items} setFlash={this.setFlash} />)} />
-              <Route path="/needed" component={
-                () => (<Needed user={this.state.user} items={this.state.items} setFlash={this.setFlash} />)} />
+                () => (<Lending user={this.state.user} setFlash={this.setFlash} />)} />
               <Route path="/login" component={
                 () => (<Login user={this.state.user} setFlash={this.setFlash} updateUser={this.getUser} />)} />
               <Route path="/signup" component={

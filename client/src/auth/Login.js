@@ -36,27 +36,28 @@ class Login extends Component {
 
   render() {
     let form = '';
-    if(this.props.user){
-      return (<Redirect to="/dashboard" />);
+    if(this.props.user) {
+      return (<Redirect to="/dashboard/inventory" />);
     }
     else {
-      form = (<form onSubmit={this.handleSubmit}>
-                <div>
-                  <input name="Email"
-                       placeholder="Enter your email"
-                       value={this.state.email}
-                       onChange={this.handleEmailChange} />
-                </div>
-                <div>
-                  <input name="Password"
-                       placeholder="Enter your password"
-                       type="password"
-                       value={this.state.password}
-                       onChange={this.handlePasswordChange}
-                  />
-                </div>
-                <input type="submit" value="Login" className="btn-primary" />
-              </form>);
+      form = (
+        <form onSubmit={this.handleSubmit}>
+          <div>
+            <input name="Email"
+                  placeholder="Enter your email"
+                  value={this.state.email}
+                  onChange={this.handleEmailChange} />
+          </div>
+          <div>
+            <input name="Password"
+                  placeholder="Enter your password"
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.handlePasswordChange} />
+          </div>
+          <input type="submit" value="Login" className="btn-primary" />
+        </form>
+      );
     }
     return (
       <div>

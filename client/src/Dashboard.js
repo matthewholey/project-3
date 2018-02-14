@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 import Dashbar from './dashboard/Dashbar.js';
@@ -14,21 +14,24 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: {}
+      myItems: {},
+      otherItems: {}
     }
   }
 
   componentDidMount = () => {
-    this.getItems();
+    this.getMyItems();
+    // this.getOtherItems();
   }
 
-  getItems = () => {
-    axios.get("/dashboard/inventory", {
-      items: items
-    }).then(response => {
-      localStorage.setItem("items", response.data.items);
+  getMyItems = () => {
+    console.log("User data: " + this.props.user)
+    axios.get("/dashboard", {
+      myItems: this.state.myItems
+    }).then((response) => {
+      localStorage.setItem("myItems", response.data.myItems);
       this.setState({
-        items: response.data.items
+        myItems: response.data.myItems
       });
     });
   }
@@ -40,20 +43,17 @@ class Dashboard extends Component {
         <div>
           <Dashbar />
           <div>
-            <Link to="/needed">Needed</Link>
+            <Inventory user={this.props.user} myItems={this.props.myItems} />
             <div>
-              <Inventory user={this.props.user} items={this.props.items} />
-              <div>
-                <Lending user={this.props.user} items={this.props.items} />
-                <Borrowing user={this.props.user} items={this.props.items} />
-              </div>
+              <Lending user={this.props.user} myItems={this.props.myItems} />
+              <Borrowing user={this.props.user} otherItems={this.props.otherItems} />
             </div>
           </div>
         </div>
       );
     }
     else {
-      page = <Welcome />
+      return (<Redirect to="/" />);
     }
     return (
       <div>

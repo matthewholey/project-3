@@ -45,42 +45,43 @@ class Signup extends Component {
   render() {
     let form = '';
     if(this.props.user){
-      return (<Redirect to="/dashboard" />);
+      return (<Redirect to="/dashboard/inventory" />);
     }
     else {
-      form = (<form onSubmit={this.handleSubmit}>
-                <div>
-                  <input name="Name"
-                       placeholder="What is your first name?"
-                       value={this.state.name}
-                       onChange={this.handleNameChange} />
-                </div>
-                <div>
-                  <input name="Username"
-                        placeholder="Choose a username"
-                        value={this.state.username}
-                        onChange={this.handleUsernameChange} />
-                </div>
-                <div>
-                  <input name="Email"
-                       placeholder="What is your email?"
-                       value={this.state.email}
-                       onChange={this.handleEmailChange} />
-               </div>
-               <div>
-                  <input name="Password"
-                     placeholder="Choose a password"
-                     type="password"
-                     value={this.state.password}
-                     onChange={this.handlePasswordChange} />
-                 </div>
-                 <input type="submit" value="Sign up!" className="btn-primary" />
-              </form>);
+      form = (
+        <form onSubmit={this.handleSubmit}>
+          <div>
+            <input name="Name"
+                  placeholder="What is your first name?"
+                  value={this.state.name}
+                  onChange={this.handleNameChange} />
+          </div>
+          <div>
+            <input name="Username"
+                  placeholder="Choose a username"
+                  value={this.state.username}
+                  onChange={this.handleUsernameChange} />
+          </div>
+          <div>
+            <input name="Email"
+                  placeholder="What is your email?"
+                  value={this.state.email}
+                  onChange={this.handleEmailChange} />
+          </div>
+          <div>
+            <input name="Password"
+                  placeholder="Choose a password"
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.handlePasswordChange} />
+          </div>
+          <input type="submit" value="Sign up!" className="btn-primary" />
+        </form>
+      );
     }
     return (
       <div>
         {form}
-        {this.props.user ? <Redirect to="/dashboard" /> : ''}
       </div>
     );
   }

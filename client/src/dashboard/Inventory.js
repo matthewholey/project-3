@@ -1,32 +1,31 @@
 import React, { Component } from 'react';
-import AddItem from './AddItem';
+import AddItem from './AddItem.js';
 
 
 class Inventory extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			itemName: this.state.itemName
+			myItems: {}
 		}
 	}
+
+    componentDidMount = () => {
+		this.setState({myItems: this.props.myItems})
+		console.log(this.props.myItems)
+    }
 	
 	render() {
-		var itemList = items.forEach(function(item) {
-			<li>item.itemName</li>
-		});
+		// var myItemsList = this.props.myItems.map(function(item) {
+		// 	return <li key={item.id}>item.itemName</li>
+		// });
 		return (
 			<div>
 				<AddItem user={this.props.user} />
-				<div>
-					<h1>Inventory</h1>
-					<div>
-						<h2>Items you have to lend out.</h2>
-						<div className="items">
-							<ul>
-								{itemList}
-							</ul>
-						</div>
-					</div>
+				<div className="items">
+                	<ul>
+						{/* {myItemsList} */}
+					</ul>
 				</div>
 			</div>
 		);

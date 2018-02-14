@@ -14,14 +14,14 @@ class Nav extends Component {
         </span>
       );
     }
-    else {
-      links = (
-        <span>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-        </span>
-      );
-    }
+    // else {
+    //   links = (
+    //     <span>
+    //       <Link to="/login">Login</Link>
+    //       <Link to="/signup">Sign Up</Link>
+    //     </span>
+    //   );
+    // }
 
     return (
         <div>
